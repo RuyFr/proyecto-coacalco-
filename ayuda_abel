@@ -1,0 +1,23 @@
+if(isset($_POST['registrar'])){
+    if(insertar ($conexion)){
+        header('Location: ./registro.php?msg=success');
+    }else{
+       header('Location: ./registro.php?msg=error');
+   }
+}
+
+
+if($_POST['btnlogin']){
+    //Ya se valido
+
+    session_start();
+    $_SESSION['usuario'] ='mongo';
+
+    //header('LoGin: ./dashboard.php');
+}
+
+if($_POST['logout']){
+    session_start();
+    session_detroy();
+    header('Location: ./index.php');
+}
