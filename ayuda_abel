@@ -42,3 +42,30 @@ $conexion=mysqli_connect('localhost','root','','usuarios');
 header('Location: ./index.php?msg=error');
 
 endif; ?>
+
+
+
+
+//en registro.php dentro del body al inicio
+
+<?php if(isset($_GET['msg']) && $_GET['msg'] == 'success'): ?>
+
+<script>
+Swal.fire(
+    'Registro Enviado correctamente!',
+    'Eso es todo!',
+    'success'
+)
+</script>
+
+<?php elseif(isset($_GET['msg']) && $_GET['msg'] == 'error'): ?>
+
+    <script>
+Swal.fire(
+    'Hubo un error al procesar la solicitud',
+    'Intente de nuevo!',
+    'error'
+)
+</script>
+
+<?php endif; ?>
